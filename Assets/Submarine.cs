@@ -22,6 +22,12 @@ public class Submarine : MonoBehaviour
     [SerializeField]
     private float _fadeSpeed;
 
+    [SerializeField]
+    private int _ammoCount;
+
+    [SerializeField]
+    private int _maxAmmo;
+
     private Vector2 _direction;
 
     public float visibility = 0.0f;
@@ -61,15 +67,26 @@ public class Submarine : MonoBehaviour
 
     public void SpawnTorpedo()
     {
+        if (_ammoCount <= 0) return;
+
+        _ammoCount -= 1;
+
         var torpedo = Instantiate(_torpedoPrefab, this.transform.position, Quaternion.identity);
         torpedo.Owner = this;
         torpedo.Direction = _direction.x > 0 ? Vector2.right : Vector2.left;
+    }
+
+    public void GetAmmo()
+    {
+        _ammoCount += 1;
+        _ammoCount = Mathf.Min(_maxAmmo, _ammoCount);
     }
 
     public void Start()
     {
         Id = NextId;
         NextId++;
+        _ammoCount = _maxAmmo;
     }
     
     public void Update()
@@ -93,6 +110,14 @@ public class Submarine : MonoBehaviour
         {
             Debug.Log(string.Format("{0} lost!", Id));
             Destroy(this.gameObject);
+        }
+
+        var pickup = collision.gameObject.GetComponent<Pickup>();
+        if (pickup != null)
+        {
+            pickup.Disappear();
+            GetAmmo();
+            //Debug.Log("Got pickup");
         }
     }
 

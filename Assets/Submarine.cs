@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class Submarine : MonoBehaviour
 {
+    static int NextId = 0;
 
     [SerializeField]
     private float _speed;
@@ -13,14 +14,27 @@ public class Submarine : MonoBehaviour
     private Sonar _sonarPrefab;
 
     [SerializeField]
-    private int _id;
+    private Torpedo _torpedoPrefab;
+
+    [SerializeField]
+    public int Id { get; private set; }
+
+    [SerializeField]
+    private float _fadeSpeed;
+
+    private Vector2 _direction;
 
     public float visibility = 0.0f;
 
     public void SpawnSonar()
     {
-        var sonar = Instantiate(_sonarPrefab, this.transform.position, Quaternion.identity);
-        sonar.OwnerId = _id;
+        SpawnSonar(this.transform.position);
+    }
+
+    public void SpawnSonar(Vector3 position)
+    {
+        var sonar = Instantiate(_sonarPrefab, position, Quaternion.identity);
+        sonar.OwnerId = Id;
     }
 
     public void GoUp()
@@ -36,43 +50,52 @@ public class Submarine : MonoBehaviour
     public void GoLeft()
     {
         transform.position += (Vector3)Vector2.left * Time.deltaTime * _speed;
+        _direction = Vector2.left;
     }
 
     public void GoRight()
     {
         transform.position += (Vector3)Vector2.right * Time.deltaTime * _speed;
+        _direction = Vector2.right;
     }
 
-    public void Update()
+    public void SpawnTorpedo()
     {
+        var torpedo = Instantiate(_torpedoPrefab, this.transform.position, Quaternion.identity);
+        torpedo.Owner = this;
+        torpedo.Direction = _direction.x > 0 ? Vector2.right : Vector2.left;
+    }
+
+    public void Start()
+    {
+        Id = NextId;
+        NextId++;
+    }
+    
+    public void Update()
+    {         
         GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, visibility);
+        GetComponent<SpriteRenderer>().flipX = _direction.x < 0;
+        this.visibility = Mathf.Clamp((visibility - _fadeSpeed*Time.deltaTime), 0, 1);
+
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
         var sonar = collision.gameObject.GetComponent<Sonar>();
-        if(sonar != null && sonar.OwnerId != this._id)
+        if(sonar != null && sonar.OwnerId != this.Id)
         {
             this.visibility = 1.0f;
-            StartCoroutine(Fade());
         }
-    }
 
-    [SerializeField]
-    private float fadePrecision;
-
-    [SerializeField]
-    private float fadeTime;
-
-    IEnumerator Fade()
-    {
-        float f;
-        for (f = fadeTime; f >= 0; f -= fadePrecision)
+        var torpedo = collision.gameObject.GetComponent<Torpedo>();
+        if (torpedo != null && torpedo.Owner.Id != this.Id)
         {
-            this.visibility = Mathf.Clamp(f / fadeTime, 0, 1);
-            yield return new WaitForSeconds(fadePrecision);
+            Debug.Log(string.Format("{0} lost!", Id));
+            Destroy(this.gameObject);
         }
-        this.visibility = Mathf.Clamp(f / fadeTime, 0, 1);
     }
+
+    private bool isColliding = false;
 
 }

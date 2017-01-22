@@ -16,11 +16,20 @@ public class Torpedo : MonoBehaviour {
 
     [SerializeField]
     private float _timeToExplode;
-    
+
+    [SerializeField]
+    private float _numberOfExplodingSonars;
+
+    [SerializeField]
+    private float _timeBetweenExplodingSonars;
+
+
+    private IEnumerator _explodeAfterCoroutine;
 
     void Start()
     {
-        StartCoroutine(ExplodeAfter());
+        _explodeAfterCoroutine = ExplodeAfter();
+        StartCoroutine(_explodeAfterCoroutine);
     }
 
     // Update is called once per frame
@@ -29,10 +38,33 @@ public class Torpedo : MonoBehaviour {
         GetComponent<SpriteRenderer>().flipX = Direction.x < 0;
     }
 
-    IEnumerator ExplodeAfter()
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        var submarine = collision.gameObject.GetComponent<Submarine>();
+        if (submarine != null && submarine.Id != this.Owner.Id)
+        {
+            StopCoroutine(_explodeAfterCoroutine);
+            StartCoroutine(ExplodeNow());
+        }
+    }
+
+        IEnumerator ExplodeAfter()
     {
         yield return new WaitForSeconds(_timeToExplode);
-        Owner.SpawnSonar(transform.position);
+        Debug.Log("Exploding after");
+        Destroy(this.gameObject);
+    }
+
+    IEnumerator ExplodeNow()
+    {
+        GetComponent<SpriteRenderer>().enabled = false;
+        _speed = 0.0f;
+        for (int i = 0; i < _numberOfExplodingSonars; i++)
+        {
+            Owner.SpawnSonar(transform.position);
+            yield return new WaitForSeconds(_timeBetweenExplodingSonars);
+        }
+        Debug.Log("Exploding now");
         Destroy(this.gameObject);
     }
 }

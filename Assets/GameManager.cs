@@ -26,7 +26,17 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     private float _gameWorldWidth;
 
-  
+    [SerializeField]
+    private Submarine _submarinePrefab;
+
+    [SerializeField]
+    private Transform _submarineTransform1;
+
+    [SerializeField]
+    private Transform _submarineTransform2;
+
+    private GameStateManager _gameStateManager;
+
 
     void SpawnPickup()
     {
@@ -43,11 +53,25 @@ public class GameManager : MonoBehaviour {
         _nextpickupTime = UnityEngine.Random.Range(3.0f, 5.0f);
     }
 
+
+    void CreatePlayers()
+    {
+        //player 1
+        Instantiate(_submarinePrefab, _submarineTransform1.position, Quaternion.identity);
+
+        //player 2
+        Instantiate(_submarinePrefab, _submarineTransform2.position, Quaternion.identity);
+
+    }
+
 	// Use this for initialization
 	void Start () {
         _nextpickupTime = 2;
         _pickupCooldownTimer = 0.0f;
         _numberOfActivePickups = 0;
+
+        _gameStateManager.StartGame();
+        CreatePlayers();
     }
 	
 	// Update is called once per frame

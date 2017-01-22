@@ -133,6 +133,108 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f564040ce9bc25c41ad05c38f30df32d, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &846365962
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4878977591584026, guid: 41e427e70eb30ec4f8f0c2d82e52f8e3, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -2.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 4878977591584026, guid: 41e427e70eb30ec4f8f0c2d82e52f8e3, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.035000026
+      objectReference: {fileID: 0}
+    - target: {fileID: 4878977591584026, guid: 41e427e70eb30ec4f8f0c2d82e52f8e3, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4878977591584026, guid: 41e427e70eb30ec4f8f0c2d82e52f8e3, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4878977591584026, guid: 41e427e70eb30ec4f8f0c2d82e52f8e3, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4878977591584026, guid: 41e427e70eb30ec4f8f0c2d82e52f8e3, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4878977591584026, guid: 41e427e70eb30ec4f8f0c2d82e52f8e3, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4878977591584026, guid: 41e427e70eb30ec4f8f0c2d82e52f8e3, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114192326231449940, guid: 41e427e70eb30ec4f8f0c2d82e52f8e3,
+        type: 2}
+      propertyPath: PlayerInputEvents.Array.data[0].Action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1076263376}
+    - target: {fileID: 114192326231449940, guid: 41e427e70eb30ec4f8f0c2d82e52f8e3,
+        type: 2}
+      propertyPath: PlayerInputEvents.Array.data[1].Action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1076263376}
+    - target: {fileID: 114192326231449940, guid: 41e427e70eb30ec4f8f0c2d82e52f8e3,
+        type: 2}
+      propertyPath: PlayerInputEvents.Array.data[2].Action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1076263376}
+    - target: {fileID: 114192326231449940, guid: 41e427e70eb30ec4f8f0c2d82e52f8e3,
+        type: 2}
+      propertyPath: PlayerInputEvents.Array.data[3].Action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1076263376}
+    - target: {fileID: 114192326231449940, guid: 41e427e70eb30ec4f8f0c2d82e52f8e3,
+        type: 2}
+      propertyPath: PlayerInputEvents.Array.data[4].Action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1076263376}
+    - target: {fileID: 114192326231449940, guid: 41e427e70eb30ec4f8f0c2d82e52f8e3,
+        type: 2}
+      propertyPath: PlayerInputEvents.Array.data[5].Action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1076263376}
+    - target: {fileID: 114169353360444682, guid: 41e427e70eb30ec4f8f0c2d82e52f8e3,
+        type: 2}
+      propertyPath: PlayerInputEvents.Array.data[0].Action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2002321225}
+    - target: {fileID: 114169353360444682, guid: 41e427e70eb30ec4f8f0c2d82e52f8e3,
+        type: 2}
+      propertyPath: PlayerInputEvents.Array.data[1].Action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2002321225}
+    - target: {fileID: 114169353360444682, guid: 41e427e70eb30ec4f8f0c2d82e52f8e3,
+        type: 2}
+      propertyPath: PlayerInputEvents.Array.data[2].Action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2002321225}
+    - target: {fileID: 114169353360444682, guid: 41e427e70eb30ec4f8f0c2d82e52f8e3,
+        type: 2}
+      propertyPath: PlayerInputEvents.Array.data[3].Action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2002321225}
+    - target: {fileID: 114169353360444682, guid: 41e427e70eb30ec4f8f0c2d82e52f8e3,
+        type: 2}
+      propertyPath: PlayerInputEvents.Array.data[4].Action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2002321225}
+    - target: {fileID: 114169353360444682, guid: 41e427e70eb30ec4f8f0c2d82e52f8e3,
+        type: 2}
+      propertyPath: PlayerInputEvents.Array.data[5].Action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2002321225}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 41e427e70eb30ec4f8f0c2d82e52f8e3, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1001545243
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,6 +305,34 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1767218143}
   m_Script: {fileID: 11500000, guid: fcff1439ca0f64b48baa7bdf934a1e22, type: 3}
+--- !u!1 &1183556998
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1183556999}
+  m_Layer: 0
+  m_Name: StartingPosition2
+  m_TagString: Untagged
+  m_Icon: {fileID: -2349822300998112484, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1183556999
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1183556998}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6.56, y: -3.44, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1484962330}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1484962325
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,7 +417,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1626808969}
+  - {fileID: 1183556999}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -310,275 +442,36 @@ MonoBehaviour:
   _maxNumberOfActivePickups: 0
   _gameWorldHeight: 10
   _gameWorldWidth: 5
---- !u!1 &1615830380
+  _submarinePrefab: {fileID: 2002321225}
+  _submarineTransform1: {fileID: 1626808969}
+  _submarineTransform2: {fileID: 1183556999}
+--- !u!1 &1626808968
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 1615830383}
-  - component: {fileID: 1615830382}
-  - component: {fileID: 1615830381}
+  - component: {fileID: 1626808969}
   m_Layer: 0
-  m_Name: Controller
+  m_Name: StartingPosition1
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -1577725955494882426, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1615830381
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1615830380}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b97f60c638ae9874bb0880f02e095c0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerInputEvents:
-  - Key: 105
-    Type: 0
-    Action:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1076263376}
-          m_MethodName: GoUp
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-  - Key: 107
-    Type: 0
-    Action:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1076263376}
-          m_MethodName: GoDown
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-  - Key: 106
-    Type: 0
-    Action:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1076263376}
-          m_MethodName: GoLeft
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-  - Key: 108
-    Type: 0
-    Action:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1076263376}
-          m_MethodName: GoRight
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-  - Key: 117
-    Type: 1
-    Action:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1076263376}
-          m_MethodName: SpawnSonar
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-  - Key: 111
-    Type: 1
-    Action:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1076263376}
-          m_MethodName: SpawnTorpedo
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
---- !u!114 &1615830382
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1615830380}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b97f60c638ae9874bb0880f02e095c0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerInputEvents:
-  - Key: 119
-    Type: 0
-    Action:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 2002321225}
-          m_MethodName: GoUp
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-  - Key: 115
-    Type: 0
-    Action:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 2002321225}
-          m_MethodName: GoDown
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-  - Key: 97
-    Type: 0
-    Action:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 2002321225}
-          m_MethodName: GoLeft
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-  - Key: 100
-    Type: 0
-    Action:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 2002321225}
-          m_MethodName: GoRight
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-  - Key: 113
-    Type: 1
-    Action:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 2002321225}
-          m_MethodName: SpawnSonar
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-  - Key: 101
-    Type: 1
-    Action:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 2002321225}
-          m_MethodName: SpawnTorpedo
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
---- !u!4 &1615830383
+--- !u!4 &1626808969
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1615830380}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.62, y: 0.035000026, z: 0}
+  m_GameObject: {fileID: 1626808968}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.25, y: 1.54, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 1484962330}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1767218143
 Prefab:

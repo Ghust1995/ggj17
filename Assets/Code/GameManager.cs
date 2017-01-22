@@ -3,7 +3,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour {
+public class GameManager : MonoBehaviour
+{
+
+    public int Player1Score { get; private set; }
+    public int Player2Score { get; private set; }
+
+    public void Score(int player)
+    {
+        switch (player)
+        {
+            case 1:
+                Player1Score++;
+                break;
+            case 2:
+                Player2Score++;
+                break;
+        }
+    }
+
+
 
     [SerializeField]
     private Pickup _pickupPrefab;
@@ -62,7 +81,7 @@ public class GameManager : MonoBehaviour {
     }
 
 
-    void CreatePlayers()
+    public void CreatePlayers()
     {
         //player1
         _submarine1.transform.position = _submarineTransform1.position;

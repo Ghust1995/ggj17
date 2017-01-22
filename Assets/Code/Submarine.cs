@@ -128,12 +128,12 @@ public class Submarine : MonoBehaviour
         var renderer = GetComponent<Renderer>();
         for (float time = 1; time >= 0; time -= 0.01f)
         {
-            renderer.transform.position +=  new Vector3(UnityEngine.Random.Range(-0.5f, 0.5f),
+            transform.position +=  new Vector3(UnityEngine.Random.Range(-0.5f, 0.5f),
                                                         UnityEngine.Random.Range(-0.5f, 0.5f),
                                                         0);
             yield return null;
         }
-        Destroy(this.gameObject);
+        this.gameObject.SetActive(false);
     }
 
     public void Start()
@@ -164,8 +164,8 @@ public class Submarine : MonoBehaviour
         var torpedo = collision.gameObject.GetComponent<Torpedo>();
         if (torpedo != null && torpedo.Owner.Id != this.Id)
         {
-            Debug.Log(string.Format("{0} lost!", Id));
-            StartCoroutine("Sink");
+            FindObjectOfType<GameStateManager>().PlayerLose(Id);
+            StartCoroutine(Sink());
         }
 
         var pickup = collision.gameObject.GetComponent<Pickup>();

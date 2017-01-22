@@ -13,19 +13,7 @@ public enum GameState
 public class GameStateManager : MonoBehaviour
 {
     private GameState _gameState;
-
-    void Update()
-    {
-        switch (_gameState)
-        {
-                case GameState.Menu:
-                break;
-                case GameState.GameOver:
-                break;
-                case GameState.Playing:
-                break;
-        }
-    }
+    private GameManager _gameManager;
 
     public void StartGame()
     {
@@ -39,9 +27,24 @@ public class GameStateManager : MonoBehaviour
                 {
                     sub.gameObject.SetActive(true);
                     sub.AmmoCount = sub.MaxAmmo;
+                    _gameManager.CreatePlayers();
                 }
                 break;
             case GameState.Playing:
+                break;
+        }
+    }
+
+    public void PlayerLose(int losingPlayer)
+    {
+        switch (_gameState)
+        {
+            case GameState.Menu:
+            case GameState.GameOver:
+                break;
+            case GameState.Playing:
+                _gameState = GameState.GameOver;
+                _gameManager.Score(losingPlayer == 1 ? 2 : 1);
                 break;
         }
     }

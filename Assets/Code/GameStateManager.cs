@@ -19,6 +19,12 @@ public class GameStateManager : MonoBehaviour
         get { return FindObjectOfType<GameManager>(); }
     }
 
+
+    public void BackToMainMenu()
+    {
+        Application.LoadLevel("Menu");
+    }
+
     public void StartGame()
     {
         switch (GameState)

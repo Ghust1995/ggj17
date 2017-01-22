@@ -21,19 +21,20 @@ public class Pickup : MonoBehaviour {
 		
 	}
 
+    public float PickupTime;
+
     IEnumerator Fade()
     {
         if (PickupEvent != null)
             PickupEvent(this, null);
 
         var renderer = GetComponent<SpriteRenderer>();
-        for (float t = 1; t >= 0; t -= 0.02f)
+        for (float t = PickupTime; t >= 0; t -= 0.02f)
         {
             var c = renderer.material.color;
             c.a = t;
             renderer.material.color = c;
-
-            yield return null;
+            yield return new WaitForSeconds(0.02f);
         }
         Debug.Log("Pickup destroyed");
         Destroy(this.gameObject);

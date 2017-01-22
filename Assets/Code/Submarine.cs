@@ -23,10 +23,10 @@ public class Submarine : MonoBehaviour
     private float _fadeSpeed;
 
     [SerializeField]
-    private int _ammoCount;
+    public int AmmoCount = 3;
 
     [SerializeField]
-    private int _maxAmmo;
+    public int MaxAmmo;
     
     private SonarShader _sonarSpawner;
 
@@ -70,9 +70,9 @@ public class Submarine : MonoBehaviour
 
     public void SpawnTorpedo()
     {
-        if (_ammoCount <= 0) return;
+        if (AmmoCount <= 0) return;
 
-        _ammoCount -= 1;
+        AmmoCount -= 1;
 
         var torpedo = Instantiate(_torpedoPrefab, this.transform.position, Quaternion.identity);
         torpedo.Owner = this;
@@ -81,15 +81,15 @@ public class Submarine : MonoBehaviour
 
     public void GetAmmo()
     {
-        _ammoCount += 1;
-        _ammoCount = Mathf.Min(_maxAmmo, _ammoCount);
+        AmmoCount += 1;
+        AmmoCount = Mathf.Min(MaxAmmo, AmmoCount);
     }
 
     public void Start()
     {
         Id = NextId;
         NextId++;
-        _ammoCount = _maxAmmo;
+        AmmoCount = MaxAmmo;
         _sonarSpawner = FindObjectOfType<SonarShader>();
     }
     

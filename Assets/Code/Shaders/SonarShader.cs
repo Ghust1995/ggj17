@@ -57,6 +57,10 @@ public class SonarShader : MonoBehaviour {
 
     public void SpawnSonar(Vector3 position)
     {
+        if (Points.Count > 99)
+        {
+            Points.RemoveAt(0);
+        }
         Points.Add(new SonarPoint()
         {
             Position = position,

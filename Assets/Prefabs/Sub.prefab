@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1999489323913338}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.296, y: 0.177, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -74,9 +74,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0.1}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1.1, y: 0.4}
+  m_Size: {x: 4.4, y: 1.52}
 --- !u!114 &114770643585013096
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -94,9 +94,8 @@ MonoBehaviour:
   _torpedoPrefab: {fileID: 114574161489848492, guid: e328e8fc79af4e04d9b9cacb12d09ddd,
     type: 2}
   _fadeSpeed: 0.4
-  _ammoCount: 3
-  _maxAmmo: 3
-  _sonarSpawner: {fileID: 0}
+  AmmoCount: 3
+  MaxAmmo: 3
   visibility: 0
 --- !u!212 &212037748327832634
 SpriteRenderer:

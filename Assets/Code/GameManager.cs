@@ -27,7 +27,10 @@ public class GameManager : MonoBehaviour {
     private float _gameWorldWidth;
 
     [SerializeField]
-    private Submarine _submarinePrefab;
+    private Submarine _submarine1;
+
+    [SerializeField]
+    private Submarine _submarine2;
 
     [SerializeField]
     private Transform _submarineTransform1;
@@ -56,12 +59,11 @@ public class GameManager : MonoBehaviour {
 
     void CreatePlayers()
     {
-        //player 1
-        Instantiate(_submarinePrefab, _submarineTransform1.position, Quaternion.identity);
+        //player1
+        _submarine1.transform.position = _submarineTransform1.position;
 
-        //player 2
-        Instantiate(_submarinePrefab, _submarineTransform2.position, Quaternion.identity);
-
+        //player2
+        _submarine2.transform.position = _submarineTransform2.position;
     }
 
 	// Use this for initialization
@@ -70,6 +72,7 @@ public class GameManager : MonoBehaviour {
         _pickupCooldownTimer = 0.0f;
         _numberOfActivePickups = 0;
 
+        _gameStateManager = new GameStateManager();
         _gameStateManager.StartGame();
         CreatePlayers();
     }

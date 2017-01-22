@@ -136,7 +136,7 @@ public class Submarine : MonoBehaviour
     {
         Id = NextId;
         NextId++;
-        AmmoCount = MaxAmmo;
+        AmmoCount = 0;
         _sonarSpawner = FindObjectOfType<SonarShader>();
     }
     

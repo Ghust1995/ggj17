@@ -12,24 +12,19 @@ public enum GameState
 
 public class GameStateManager : MonoBehaviour
 {
-    private GameState _gameState;
-    private GameManager _gameManager;
+    public GameState GameState = GameState.Playing;
+
+    private GameManager _gameManager
+    {
+        get { return FindObjectOfType<GameManager>(); }
+    }
 
     public void StartGame()
     {
-        switch (_gameState)
+        switch (GameState)
         {
             case GameState.Menu:
             case GameState.GameOver:
-                _gameState = GameState.Playing;
-                var subs = FindObjectsOfType<Submarine>();
-                foreach (var sub in subs)
-                {
-                    sub.gameObject.SetActive(true);
-                    sub.AmmoCount = sub.MaxAmmo;
-                    _gameManager.CreatePlayers();
-                }
-                break;
             case GameState.Playing:
                 break;
         }
@@ -37,13 +32,13 @@ public class GameStateManager : MonoBehaviour
 
     public void PlayerLose(int losingPlayer)
     {
-        switch (_gameState)
+        switch (GameState)
         {
             case GameState.Menu:
             case GameState.GameOver:
                 break;
             case GameState.Playing:
-                _gameState = GameState.GameOver;
+                //GameState = GameState.GameOver;
                 _gameManager.Score(losingPlayer == 1 ? 2 : 1);
                 break;
         }

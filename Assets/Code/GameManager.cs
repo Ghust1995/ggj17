@@ -99,7 +99,12 @@ public class GameManager : MonoBehaviour
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
+	    if (_gameStateManager.GameState != GameState.Playing)
+	    {
+	        _pickupCooldownTimer = 0;
+	    };
         //timer updates
         _pickupCooldownTimer += Time.deltaTime;
 

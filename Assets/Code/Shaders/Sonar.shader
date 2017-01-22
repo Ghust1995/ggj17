@@ -11,8 +11,7 @@ Shader "Custom/Sonar"
 
 	}
 	SubShader {
-		Tags {"Queue" = "Transparent"}
-		Cull Off
+		Cull Off ZWrite Off ZTest Always
 		Blend SrcAlpha OneMinusSrcAlpha
 		Pass {
 			CGPROGRAM
@@ -25,7 +24,6 @@ Shader "Custom/Sonar"
 				float4 pos : POSITION;
 				float2 texcoord : TEXCOORD0;
 				float4 color : COLOR;
-				float4 vertex   : POSITION;
 			};
 			struct vertOutput {
 				float4 pos : POSITION;
@@ -43,7 +41,7 @@ Shader "Custom/Sonar"
 				o.texcoord = input.texcoord;
 				o.color = input.color * _Color;
 				#ifdef PIXELSNAP_ON
-				o.vertex = UnityPixelSnap(o.vertex);
+				o.pos = UnityPixelSnap(o.pos);
 				#endif
 				return o;
 			}			
@@ -63,14 +61,15 @@ Shader "Custom/Sonar"
 
 			half4 frag(vertOutput output) : COLOR {
 				half h = 0;			
-				for (int i = 0; i < _Points_Length; i++) {
+				for (int i = 0; i < 100; i++) {
 					half di = distance(output.worldPos, _Points[i].xyz);
 					
 					half ri = _Radius[i];
 					//if (di < ri - _Thickness || di > ri + _Thickness) continue;
 					half hi = 0.8*saturate(1 - _Decay * abs(di - ri));
-					
-					h += hi;
+					if (ri != 0) {
+						h += hi;
+					}					
 				}
 
 				h = saturate(h);
@@ -83,5 +82,4 @@ Shader "Custom/Sonar"
 			ENDCG
 		}
 	}
-	Fallback "Diffuse"
 }

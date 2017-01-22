@@ -7,6 +7,8 @@ public class Submarine : MonoBehaviour
 {
     static int NextId = 0;
 
+    public bool Alive { get; private set; }
+
     [SerializeField]
     private float _speed;
 
@@ -53,25 +55,53 @@ public class Submarine : MonoBehaviour
         //sonar.OwnerId = Id;
     }
 
+    public bool CanMove(Vector2 diff)
+    {
+        Vector2 distToOrigin = -transform.position; 
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, diff * 10, diff.magnitude);
+
+        Debug.DrawLine(transform.position, transform.position + (Vector3)diff * 10, Color.black, 2, false);
+        if (hit.collider == null && Vector2.Dot(distToOrigin, diff) < 0)
+        {
+            Debug.Log("Not supposed to move");
+            return false;
+        }
+        return true;
+    }
+
     public void GoUp()
     {
-        transform.position += (Vector3)Vector2.up * Time.deltaTime * _speed;
+        Vector3 movementVector = (Vector3)Vector2.up * Time.deltaTime * _speed;
+
+        if (CanMove(movementVector))
+            transform.position += movementVector;
     }
 
     public void GoDown()
     {
-        transform.position += (Vector3)Vector2.down * Time.deltaTime * _speed;
+        Vector3 movementVector = (Vector3)Vector2.down * Time.deltaTime * _speed;
+
+        if (CanMove(movementVector))
+            transform.position += (Vector3)Vector2.down * Time.deltaTime * _speed;
     }
 
     public void GoLeft()
     {
-        transform.position += (Vector3)Vector2.left * Time.deltaTime * _speed;
+        Vector3 movementVector = (Vector3)Vector2.left * Time.deltaTime * _speed;
+
+        if (CanMove(movementVector))
+            transform.position += (Vector3)Vector2.left * Time.deltaTime * _speed;
+
         _direction = Vector2.left;
     }
 
     public void GoRight()
     {
-        transform.position += (Vector3)Vector2.right * Time.deltaTime * _speed;
+        Vector3 movementVector = (Vector3)Vector2.right * Time.deltaTime * _speed;
+
+        if (CanMove(movementVector))
+            transform.position += (Vector3)Vector2.right * Time.deltaTime * _speed;
+
         _direction = Vector2.right;
     }
 
@@ -90,6 +120,20 @@ public class Submarine : MonoBehaviour
     {
         AmmoCount += 1;
         AmmoCount = Mathf.Min(MaxAmmo, AmmoCount);
+    }
+
+    //Called when submarine is hit by torpedo
+    IEnumerator Sink()
+    {
+        var renderer = GetComponent<Renderer>();
+        for (float time = 1; time >= 0; time -= 0.01f)
+        {
+            renderer.transform.position +=  new Vector3(UnityEngine.Random.Range(-0.5f, 0.5f),
+                                                        UnityEngine.Random.Range(-0.5f, 0.5f),
+                                                        0);
+            yield return null;
+        }
+        Destroy(this.gameObject);
     }
 
     public void Start()
@@ -121,7 +165,7 @@ public class Submarine : MonoBehaviour
         if (torpedo != null && torpedo.Owner.Id != this.Id)
         {
             Debug.Log(string.Format("{0} lost!", Id));
-            Destroy(this.gameObject);
+            StartCoroutine("Sink");
         }
 
         var pickup = collision.gameObject.GetComponent<Pickup>();

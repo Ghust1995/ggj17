@@ -13,6 +13,7 @@ public enum GameState
 
 public class GameStateManager : MonoBehaviour {
 
+
     public GameState State { get; private set; }
 
     public void StartGame()

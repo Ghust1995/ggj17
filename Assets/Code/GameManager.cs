@@ -38,16 +38,20 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     private Transform _submarineTransform2;
 
+    [SerializeField]
     private GameStateManager _gameStateManager;
 
 
     void SpawnPickup()
     {
-        float padding = 0.2f;
-        float x = UnityEngine.Random.Range(-_gameWorldWidth / 2 + padding, _gameWorldWidth / 2 - padding);
-        float y = UnityEngine.Random.Range(-_gameWorldHeight / 2 + padding, _gameWorldHeight / 2 - padding);
+        float padding = 0.1f;
+        //float x = UnityEngine.Random.Range(-_gameWorldWidth / 2 + padding, _gameWorldWidth / 2 - padding);
+        //float y = UnityEngine.Random.Range(-_gameWorldHeight / 2 + padding, _gameWorldHeight / 2 - padding);
 
-        Vector3 position = new Vector3(x, y, 0);
+        float r = UnityEngine.Random.Range(0.0f, _gameWorldHeight - padding);
+        float theta = UnityEngine.Random.Range(0.0f, 2 * Mathf.PI);
+
+        Vector3 position = new Vector3((float)(r * Math.Cos(theta)), (float)(r * Math.Sin(theta)), 0);
 
         var pickup = Instantiate(_pickupPrefab, position, Quaternion.identity);
         _numberOfActivePickups += 1;
@@ -72,7 +76,6 @@ public class GameManager : MonoBehaviour {
         _pickupCooldownTimer = 0.0f;
         _numberOfActivePickups = 0;
 
-        _gameStateManager = new GameStateManager();
         _gameStateManager.StartGame();
         CreatePlayers();
     }

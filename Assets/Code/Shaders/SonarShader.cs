@@ -19,9 +19,6 @@ public class SonarShader : MonoBehaviour {
 
     public float WaveSpeed;
 
-    public Vector4 Position;
-    public float Speed;
-
     public float MaxRadius;
 
     private void Awake()
@@ -46,19 +43,7 @@ public class SonarShader : MonoBehaviour {
             p.Radius += Time.deltaTime * WaveSpeed;
             return p;
         }
-        ).ToList();            
-
-        var velocity = Speed * Time.deltaTime * new Vector4(Input.GetAxisRaw("Horizontal"), 0,  Input.GetAxisRaw("Vertical"), 0);
-        Position += velocity;
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Points.Add(new SonarPoint()
-            {
-                Position = Position,
-                Radius = 0.2f,
-            });            
-        }
+        ).ToList();   
 
         Points.RemoveAll((p) => p.Radius > MaxRadius);
 
@@ -68,5 +53,14 @@ public class SonarShader : MonoBehaviour {
             material.SetVectorArray("_Points", Points.Select((p) => p.Position).ToList());
             material.SetFloatArray("_Radius", Points.Select((p) => p.Radius).ToList());
         }        
+    }
+
+    public void SpawnSonar(Vector3 position)
+    {
+        Points.Add(new SonarPoint()
+        {
+            Position = position,
+            Radius = 0.2f,
+        });
     }
 }

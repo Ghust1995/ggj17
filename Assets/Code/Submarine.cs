@@ -27,6 +27,8 @@ public class Submarine : MonoBehaviour
 
     [SerializeField]
     private int _maxAmmo;
+    
+    private SonarShader _sonarSpawner;
 
     private Vector2 _direction;
 
@@ -39,8 +41,9 @@ public class Submarine : MonoBehaviour
 
     public void SpawnSonar(Vector3 position)
     {
-        var sonar = Instantiate(_sonarPrefab, position, Quaternion.identity);
-        sonar.OwnerId = Id;
+        _sonarSpawner.SpawnSonar(position);
+        //var sonar = Instantiate(_sonarPrefab, position, Quaternion.identity);
+        //sonar.OwnerId = Id;
     }
 
     public void GoUp()
@@ -87,6 +90,7 @@ public class Submarine : MonoBehaviour
         Id = NextId;
         NextId++;
         _ammoCount = _maxAmmo;
+        _sonarSpawner = FindObjectOfType<SonarShader>();
     }
     
     public void Update()
@@ -120,7 +124,5 @@ public class Submarine : MonoBehaviour
             //Debug.Log("Got pickup");
         }
     }
-
-    private bool isColliding = false;
 
 }

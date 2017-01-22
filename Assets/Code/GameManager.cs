@@ -76,8 +76,6 @@ public class GameManager : MonoBehaviour {
         _nextpickupTime = 2;
         _pickupCooldownTimer = 0.0f;
         _numberOfActivePickups = 0;
-
-        _gameStateManager.StartGame();
         CreatePlayers();
     }
 	

@@ -4,42 +4,45 @@ using UnityEngine;
 
 public enum GameState
 {
-    Starting,
+    Menu,
     Playing,
-    Ending,
-    Done
+    GameOver
 }
 
 
-public class GameStateManager : MonoBehaviour {
+public class GameStateManager : MonoBehaviour
+{
+    private GameState _gameState;
 
-
-    public GameState State { get; private set; }
+    void Update()
+    {
+        switch (_gameState)
+        {
+                case GameState.Menu:
+                break;
+                case GameState.GameOver:
+                break;
+                case GameState.Playing:
+                break;
+        }
+    }
 
     public void StartGame()
     {
-        State = GameState.Starting;
-    }
-
-    public void EndGame()
-    {
-        State = GameState.Ending;
-    }
-
-
-	// Use this for initialization
-	void Start () {
-        State = GameState.Starting;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		switch (State) {
-            case GameState.Starting:
+        switch (_gameState)
+        {
+            case GameState.Menu:
+            case GameState.GameOver:
+                _gameState = GameState.Playing;
+                var subs = FindObjectsOfType<Submarine>();
+                foreach (var sub in subs)
+                {
+                    sub.gameObject.SetActive(true);
+                    sub.AmmoCount = sub.MaxAmmo;
+                }
                 break;
-
-            case GameState.Done:
+            case GameState.Playing:
                 break;
         }
-	}
+    }
 }

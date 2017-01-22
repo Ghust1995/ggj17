@@ -634,6 +634,8 @@ MonoBehaviour:
   _fadeSpeed: 0.4
   AmmoCount: 3
   MaxAmmo: 3
+  _sonarCooldown: 1
+  _timeSinceLastSonar: 0
   visibility: 0
 --- !u!114 &114299637623957710
 MonoBehaviour:
@@ -706,6 +708,8 @@ MonoBehaviour:
   _fadeSpeed: 0.4
   AmmoCount: 3
   MaxAmmo: 3
+  _sonarCooldown: 0
+  _timeSinceLastSonar: 0
   visibility: 0
 --- !u!114 &114610715095584604
 MonoBehaviour:

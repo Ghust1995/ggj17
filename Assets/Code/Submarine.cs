@@ -27,6 +27,11 @@ public class Submarine : MonoBehaviour
 
     [SerializeField]
     public int MaxAmmo;
+
+    [SerializeField]
+    private float _sonarCooldown;
+    
+    private float _timeSinceLastSonar;
     
     private SonarShader _sonarSpawner;
 
@@ -36,7 +41,9 @@ public class Submarine : MonoBehaviour
 
     public void SpawnSonar()
     {
+        if (_timeSinceLastSonar < _sonarCooldown) return;
         SpawnSonar(this.transform.position);
+        _timeSinceLastSonar = 0;
     }
 
     public void SpawnSonar(Vector3 position)
@@ -94,11 +101,12 @@ public class Submarine : MonoBehaviour
     }
     
     public void Update()
-    {         
+    {
+        _timeSinceLastSonar += Time.deltaTime;
+
         GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, visibility);
         GetComponent<SpriteRenderer>().flipX = _direction.x < 0;
         this.visibility = Mathf.Clamp((visibility - _fadeSpeed*Time.deltaTime), 0, 1);
-
     }
 
     public void OnTriggerEnter2D(Collider2D collision)

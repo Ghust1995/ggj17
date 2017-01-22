@@ -71,6 +71,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4286439178248126}
   - component: {fileID: 212277403824544354}
+  - component: {fileID: 58566428643629742}
   m_Layer: 0
   m_Name: background
   m_TagString: Untagged
@@ -173,7 +174,7 @@ GameObject:
   - component: {fileID: 114519124451142272}
   - component: {fileID: 61365496185924986}
   - component: {fileID: 50404158818405642}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sub1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -344,7 +345,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1131024100842450}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.2231996, y: -0.1316304, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 4111534026000918}
@@ -491,6 +492,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &58566428643629742
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1131024100842450}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.47
 --- !u!61 &61001642541945162
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -635,7 +650,6 @@ MonoBehaviour:
   AmmoCount: 3
   MaxAmmo: 3
   _sonarCooldown: 1
-  _timeSinceLastSonar: 0
   visibility: 0
 --- !u!114 &114299637623957710
 MonoBehaviour:
@@ -709,7 +723,6 @@ MonoBehaviour:
   AmmoCount: 3
   MaxAmmo: 3
   _sonarCooldown: 0
-  _timeSinceLastSonar: 0
   visibility: 0
 --- !u!114 &114610715095584604
 MonoBehaviour:

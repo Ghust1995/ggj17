@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ScoreDisplay : MonoBehaviour
 {
 
-    public GameManager GameManager;
+    private GameManager _gameManager;
     public Vector2 Position;
     public Text scorePrefab;
 
@@ -16,6 +16,8 @@ public class ScoreDisplay : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
+        _gameManager = FindObjectOfType<GameManager>();
+
         p1Score = Instantiate(scorePrefab, transform);
         p1Score.transform.localScale = Vector3.one;
         p1Score.gameObject.name = "P1";
@@ -28,8 +30,11 @@ public class ScoreDisplay : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-	    p1Score.text = GameManager.Player1Score.ToString();
-        p2Score.text = GameManager.Player2Score.ToString();
+	    p1Score.transform.localPosition = new Vector2(-Position.x, Position.y);
+        p2Score.transform.localPosition = new Vector2(Position.x, Position.y);
 
+
+        p1Score.text = _gameManager.Player1Score.ToString();
+        p2Score.text = _gameManager.Player2Score.ToString();
     }
 }

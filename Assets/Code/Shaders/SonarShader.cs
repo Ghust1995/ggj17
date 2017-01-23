@@ -36,23 +36,30 @@ public class SonarShader : MonoBehaviour {
             material.SetFloatArray("_Radius", Points.Select((p) => p.Radius).ToList());
         }        
     }
-	
-	// Update is called once per frame
-	void Update () {
-        Points = Points.Select((p) => {
+
+    // Update is called once per frame
+    void Update()
+    {
+        Points = Points.Select((p) =>
+        {
+            if (p.Radius == 0) return p;
             p.Radius += Time.deltaTime * WaveSpeed;
             return p;
         }
-        ).ToList();   
+        ).ToList();
 
-        Points.RemoveAll((p) => p.Radius > MaxRadius);
+        Points = Points.Select((p) =>
+        {
+            p.Radius = p.Radius > MaxRadius ? 0 : p.Radius;
+            return p;
+        }).ToList();
 
         material.SetInt("_Points_Length", Points.Count);
-        if(Points.Count > 0)
+        if (Points.Count > 0)
         {
             material.SetVectorArray("_Points", Points.Select((p) => p.Position).ToList());
             material.SetFloatArray("_Radius", Points.Select((p) => p.Radius).ToList());
-        }        
+        }
     }
 
     public void SpawnSonar(Vector3 position)

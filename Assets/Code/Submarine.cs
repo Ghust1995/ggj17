@@ -41,6 +41,9 @@ public class Submarine : MonoBehaviour
 
     [SerializeField]
     private float _sinkingFrequency;
+
+    [SerializeField]
+    private SubmarineSoundPlayer _soundPlayer;
     
     private float _timeSinceLastSonar;
     
@@ -51,6 +54,7 @@ public class Submarine : MonoBehaviour
     public float visibility = 0.0f;
 
 
+
     public void SpawnSonar()
     {
         if (_timeSinceLastSonar < _sonarCooldown) return;
@@ -59,6 +63,14 @@ public class Submarine : MonoBehaviour
     }
 
     public void SpawnSonar(Vector3 position)
+    {
+        _soundPlayer.PlaySonar();
+        _sonarSpawner.SpawnSonar(position);
+        //var sonar = Instantiate(_sonarPrefab, position, Quaternion.identity);
+        //sonar.OwnerId = Id;
+    }
+
+    public void SpawnSilentSonar(Vector3 position)
     {
         _sonarSpawner.SpawnSonar(position);
         //var sonar = Instantiate(_sonarPrefab, position, Quaternion.identity);
@@ -128,6 +140,7 @@ public class Submarine : MonoBehaviour
 
     public void GetAmmo()
     {
+        _soundPlayer.PlayReload();
         AmmoCount += 1;
         AmmoCount = Mathf.Min(MaxAmmo, AmmoCount);
     }
@@ -178,6 +191,8 @@ public class Submarine : MonoBehaviour
     {
         var renderer = GetComponent<Renderer>();
         var sinkingPosition = renderer.transform.position;
+
+        _soundPlayer.PlayExplosion();
 
         var deltaY = 0.0f;
         for (float time = 1.0f; time >= 0; time -= 0.01f)

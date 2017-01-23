@@ -4,10 +4,23 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-        DontDestroyOnLoad(this.gameObject);
-	}
+    public static SoundManager instance = null;
+
+    [SerializeField]
+    private AudioClip _audioClip;
+
+
+    // Use this for initialization
+    void Start () {
+        //DontDestroyOnLoad(this.gameObject);
+
+        //Check if instance already exists
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
+
 	
 	// Update is called once per frame
 	void Update () {

@@ -61,7 +61,7 @@ public class Torpedo : MonoBehaviour {
         _speed = 0.0f;
         for (int i = 0; i < _numberOfExplodingSonars; i++)
         {
-            Owner.SpawnSonar(transform.position);
+            Owner.SpawnSilentSonar(transform.position);
             yield return new WaitForSeconds(_timeBetweenExplodingSonars);
         }
         Debug.Log("Exploding now");
